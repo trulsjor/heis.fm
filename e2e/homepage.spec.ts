@@ -48,3 +48,19 @@ test('homepage displays latest episodes section', async ({ page }) => {
   await expect(firstCard.locator('h3')).toBeVisible(); // title
   await expect(firstCard.locator('time')).toBeVisible(); // date
 });
+
+test('homepage displays hosts section', async ({ page }) => {
+  await page.goto('/');
+
+  // Check for hosts section
+  const hostsSection = page.locator('[data-testid="hosts"]');
+  await expect(hostsSection).toBeVisible();
+
+  // Check section has heading
+  const heading = hostsSection.locator('h2');
+  await expect(heading).toContainText(/Meet.*Hosts/i);
+
+  // Check both hosts are displayed
+  await expect(hostsSection.getByText('Truls Jørgensen')).toBeVisible();
+  await expect(hostsSection.getByText('Audun Fauchald Strand')).toBeVisible();
+});
