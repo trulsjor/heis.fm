@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import EpisodeCard from '../components/EpisodeCard.astro';
+import { parseRssFeed } from '../utils/rss';
+
+const RSS_FEED_URL = 'https://feeds.acast.com/public/shows/68d8f5fdacc34956e6156eec';
+const allEpisodes = await parseRssFeed(RSS_FEED_URL);
+---
+
+<Layout title="Episodes - heis.fm" description="Browse all episodes of the heis.fm podcast">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+		<h1 class="text-4xl md:text-5xl font-bold mb-4">All Episodes</h1>
+		<p class="text-xl text-gray-300 mb-12">
+			Browse our complete archive of episodes
+		</p>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+			{allEpisodes.map((episode) => (
+				<EpisodeCard episode={episode} />
+			))}
+		</div>
+	</div>
+</Layout>
