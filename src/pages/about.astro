@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About - heis.fm" description="Learn more about the heis.fm podcast and hosts Truls Jørgensen and Audun Fauchald Strand">
+	<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+		<h1 class="text-4xl md:text-5xl font-bold mb-8">About heis.fm</h1>
+
+		<section class="mb-16">
+			<h2 class="text-2xl font-bold mb-4 text-pink">The Podcast</h2>
+			<div class="prose prose-invert max-w-none">
+				<p class="text-lg text-gray-300 leading-relaxed mb-4">
+					heis.fm is a podcast exploring technology, leadership, and innovation in the Norwegian tech scene.
+				</p>
+				<p class="text-lg text-gray-300 leading-relaxed">
+					Join us as we dive deep into conversations with industry leaders, developers, and innovators shaping the future of technology.
+				</p>
+			</div>
+		</section>
+
+		<section data-testid="hosts-section">
+			<h2 class="text-2xl font-bold mb-8 text-pink">Your Hosts</h2>
+			<div class="space-y-12">
+				<div class="flex flex-col md:flex-row gap-6 items-start">
+					<div class="w-32 h-32 flex-shrink-0 bg-gray-800 rounded-full flex items-center justify-center text-4xl font-bold text-pink">
+						TJ
+					</div>
+					<div>
+						<h3 class="text-2xl font-bold mb-2">Truls Jørgensen</h3>
+						<p class="text-gray-300 leading-relaxed">
+							Co-host of heis.fm, passionate about technology and innovation.
+						</p>
+					</div>
+				</div>
+
+				<div class="flex flex-col md:flex-row gap-6 items-start">
+					<div class="w-32 h-32 flex-shrink-0 bg-gray-800 rounded-full flex items-center justify-center text-4xl font-bold text-pink">
+						AFS
+					</div>
+					<div>
+						<h3 class="text-2xl font-bold mb-2">Audun Fauchald Strand</h3>
+						<p class="text-gray-300 leading-relaxed">
+							Co-host of heis.fm, bringing insights from the tech industry.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="mt-16 pt-16 border-t border-gray-800">
+			<h2 class="text-2xl font-bold mb-6 text-pink">Listen & Subscribe</h2>
+			<p class="text-gray-300 mb-6">
+				New episodes are available on all major podcast platforms.
+			</p>
+			<a href="/episodes" class="inline-block bg-pink hover:bg-pink-hover text-white font-semibold px-6 py-3 rounded-lg transition-colors">
+				Browse Episodes
+			</a>
+		</section>
+	</div>
+</Layout>
