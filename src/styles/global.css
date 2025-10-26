@@ -3,9 +3,11 @@
 @theme {
   --color-pink: #f472b6;
   --color-pink-hover: #fb7bbd;
+  --font-family-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
   background-color: #000000;
   color: #ffffff;
+  font-family: var(--font-family-sans);
 }
