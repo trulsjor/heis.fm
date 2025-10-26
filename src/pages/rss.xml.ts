@@ -9,7 +9,7 @@ export async function GET(context: APIContext) {
 
   return rss({
     title: 'heis.fm',
-    description: 'A podcast by Truls Jørgensen and Audun Fauchald Strand',
+    description: 'En podcast om teknologiledelse av Truls Jørgensen og Audun Fauchald Strand',
     site: context.site || 'https://heis.fm',
     items: episodes.map((episode) => ({
       title: episode.title,
@@ -22,6 +22,6 @@ export async function GET(context: APIContext) {
         length: 0, // Length is optional but RSS spec requires it
       } : undefined,
     })),
-    customData: `<language>en-us</language>`,
+    customData: `<language>nb-no</language>`,
   });
 }

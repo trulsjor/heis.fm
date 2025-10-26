@@ -13,13 +13,29 @@ export default defineConfig({
   },
   projects: [
     {
-      name: 'chromium',
+      name: 'dev',
       use: { ...devices['Desktop Chrome'] },
+      testIgnore: '**/sitemap.spec.ts',
+    },
+    {
+      name: 'preview',
+      use: {
+        ...devices['Desktop Chrome'],
+        baseURL: 'http://localhost:4322',
+      },
+      testMatch: '**/sitemap.spec.ts',
     },
   ],
-  webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:4321',
-    reuseExistingServer: !process.env.CI,
-  },
+  webServer: [
+    {
+      command: 'npm run dev',
+      url: 'http://localhost:4321',
+      reuseExistingServer: !process.env.CI,
+    },
+    {
+      command: 'npm run build && npm run preview -- --port 4322',
+      url: 'http://localhost:4322',
+      reuseExistingServer: !process.env.CI,
+    },
+  ],
 });
