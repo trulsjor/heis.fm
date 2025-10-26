@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import { RSS_FEED_URL } from '../../config';
 import { parseRssFeed } from '../../utils/rss';
 import type { Episode } from '../../utils/rss';
+import ListenPlatforms from '../../components/ListenPlatforms.astro';
 
 export async function getStaticPaths() {
   const episodes = await parseRssFeed(RSS_FEED_URL);
@@ -112,5 +113,6 @@ const formattedDate = date.toLocaleDateString('nb-NO', {
         )}
       </div>
     </nav>
+    <ListenPlatforms />
   </article>
 </Layout>
