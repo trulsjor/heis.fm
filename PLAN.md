@@ -56,8 +56,8 @@
 - [x] 3.3 Add 2-3 sample episodes (mock data) - using real RSS data
 - [x] 3.4 Create EpisodeCard component
 - [x] 3.5 Build /episodes page with episode list
-- [ ] 3.6 Add basic audio player component
-- [ ] 3.7 Create individual episode page template
+- [x] 3.6 Add basic audio player component
+- [ ] 3.7 Create individual episode page template (optional - not needed with inline player)
 
 ### Phase 4: About Page
 
