@@ -59,13 +59,13 @@
 - [x] 3.6 Add basic audio player component
 - [ ] 3.7 Create individual episode page template (optional - not needed with inline player)
 
-### Phase 4: About Page
+### Phase 4: About Page ✅ COMPLETE
 
-- [ ] 4.1 Create /about page structure
-- [ ] 4.2 Add podcast description
-- [ ] 4.3 Add detailed host bios for Truls and Audun
-- [ ] 4.4 Add contact information
-- [ ] 4.5 Include social media links
+- [x] 4.1 Create /about page structure
+- [x] 4.2 Add podcast description
+- [x] 4.3 Add detailed host bios for Truls and Audun
+- [ ] 4.4 Add contact information (optional)
+- [ ] 4.5 Include social media links (optional)
 
 ### Phase 5: RSS Feed
 
