@@ -93,7 +93,7 @@
 - [ ] 7.4 Push to git repository
 - [ ] 7.5 Connect repo to statichost.eu
 - [ ] 7.6 Verify live deployment
-- [ ] 7.7 Set up custom domain (if applicable)
+- [ ] 7.7 Set up custom domain (if applicable) 
 
 ---
 
