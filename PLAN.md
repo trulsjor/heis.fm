@@ -33,19 +33,19 @@
 
 ### Phase 1: Design Foundation
 
-- [ ] 1.1 Move cover.jpeg to public folder
-- [ ] 1.2 Configure Tailwind with custom color palette
-- [ ] 1.3 Add Inter font (or similar)
-- [ ] 1.4 Update global.css with base styles
-- [ ] 1.5 Create base Layout component with navigation
-- [ ] 1.6 Add favicon using podcast branding
+- [x] 1.1 Move cover.jpeg to public folder
+- [x] 1.2 Configure Tailwind with custom color palette
+- [x] 1.3 Add Inter font (or similar)
+- [x] 1.4 Update global.css with base styles
+- [x] 1.5 Create base Layout component with navigation
+- [x] 1.6 Add favicon using podcast branding
 
 ### Phase 2: Homepage
 
-- [ ] 2.1 Create hero section with cover image
-- [ ] 2.2 Add podcast title and tagline
+- [x] 2.1 Create hero section with cover image
+- [x] 2.2 Add podcast title and tagline
 - [ ] 2.3 Build "Latest Episodes" section component
-- [ ] 2.4 Add subscribe/listen buttons (placeholder links)
+- [x] 2.4 Add subscribe/listen buttons (placeholder links)
 - [ ] 2.5 Create hosts section with photos and bios
 - [ ] 2.6 Add footer with social links
 
