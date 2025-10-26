@@ -19,20 +19,30 @@ const formattedDate = date.toLocaleDateString('nb-NO', {
 <article data-testid="episode-card" class="bg-gray-900 rounded-lg overflow-hidden hover:bg-gray-800 transition-colors border border-gray-800">
   {episode.imageUrl && (
     <div class="aspect-square w-full">
-      <img
+       {episode.episodeNumber !== undefined ? (
+        <a href={`/episode/${episode.episodeNumber}`}>
+       <img
         src={episode.imageUrl}
         alt={episode.title}
         class="w-full h-full object-cover"
       />
+        </a>
+      ) : (
+         <img
+        src={episode.imageUrl}
+        alt={episode.title}
+        class="w-full h-full object-cover"
+      />
+      )}
     </div>
   )}
   <div class="p-6">
     <div class="flex items-center gap-3 mb-2">
-      {episode.episodeNumber && (
+      {
         <span data-testid="episode-number" class="text-pink font-bold text-lg">
           #{episode.episodeNumber}
         </span>
-      )}
+      }
       <time datetime={episode.pubDate} class="text-sm text-gray-400">
         {formattedDate}
       </time>

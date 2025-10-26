@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import EpisodeCard from '../components/EpisodeCard.astro';
+import ListenPlatforms from '../components/ListenPlatforms.astro';
 import { RSS_FEED_URL } from '../config';
 import { parseRssFeed, addEpisodeNumbers } from '../utils/rss';
 
@@ -36,6 +37,8 @@ const latestEpisodes = allEpisodes.slice(0, 3);
 		</div>
 	</div>
 
+
+
 	<section data-testid="latest-episodes" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 		<h2 class="text-3xl font-bold mb-8">Siste episoder</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -49,4 +52,6 @@ const latestEpisodes = allEpisodes.slice(0, 3);
 			</a>
 		</div>
 	</section>
+
+		<ListenPlatforms />
 </Layout>
