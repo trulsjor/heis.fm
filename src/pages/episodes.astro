@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import EpisodeCard from '../components/EpisodeCard.astro';
-import { parseRssFeed } from '../utils/rss';
+import { parseRssFeed, addEpisodeNumbers } from '../utils/rss';
 
 const RSS_FEED_URL = 'https://feeds.acast.com/public/shows/68d8f5fdacc34956e6156eec';
-const allEpisodes = await parseRssFeed(RSS_FEED_URL);
+const rawEpisodes = await parseRssFeed(RSS_FEED_URL);
+const allEpisodes = addEpisodeNumbers(rawEpisodes);
 ---
 
 <Layout title="Episoder - heis.fm" description="Se alle episoder av heis.fm-podcasten">

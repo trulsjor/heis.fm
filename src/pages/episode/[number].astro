@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { parseRssFeed } from '../../utils/rss';
+import type { Episode } from '../../utils/rss';
+
+const RSS_FEED_URL = 'https://feeds.acast.com/public/shows/68d8f5fdacc34956e6156eec';
+
+export async function getStaticPaths() {
+  const episodes = await parseRssFeed(RSS_FEED_URL);
+
+  // Reverse to get oldest first, then assign numbers starting from 0
+  const reversedEpisodes = [...episodes].reverse();
+
+  return reversedEpisodes.map((episode, index) => ({
+    params: { number: index.toString() },
+    props: { episode, episodeNumber: index, totalEpisodes: episodes.length },
+  }));
+}
+
+interface Props {
+  episode: Episode;
+  episodeNumber: number;
+  totalEpisodes: number;
+}
+
+const { episode, episodeNumber, totalEpisodes } = Astro.props;
+
+// Format date in Norwegian
+const date = new Date(episode.pubDate);
+const formattedDate = date.toLocaleDateString('nb-NO', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Layout
+  title={`Episode ${episodeNumber}: ${episode.title} - heis.fm`}
+  description={episode.description}
+>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Episode header -->
+    <div class="mb-8">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-pink font-bold text-2xl">
+          #{ episodeNumber }
+        </span>
+        <time datetime={episode.pubDate} class="text-gray-400">
+          {formattedDate}
+        </time>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">{episode.title}</h1>
+    </div>
+
+    <!-- Episode image -->
+    {episode.imageUrl && (
+      <div class="mb-8 rounded-lg overflow-hidden border border-gray-800">
+        <img
+          src={episode.imageUrl}
+          alt={episode.title}
+          class="w-full aspect-square object-cover"
+        />
+      </div>
+    )}
+
+    <!-- Audio player -->
+    {episode.audioUrl && (
+      <div class="mb-8 p-6 bg-gray-900 rounded-lg border border-gray-800">
+        <audio controls preload="metadata" class="w-full">
+          <source src={episode.audioUrl} type="audio/mpeg" />
+          Nettleseren din støtter ikke audio-elementet.
+        </audio>
+      </div>
+    )}
+
+    <!-- Episode description -->
+    <div class="prose prose-invert max-w-none mb-12">
+      <div class="text-lg text-gray-300 leading-relaxed">
+        {episode.description}
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="border-t border-gray-800 pt-8 mt-12">
+      <div class="flex justify-between items-center">
+        {episodeNumber > 0 ? (
+          <a
+            href={`/episode/${episodeNumber - 1}`}
+            class="text-pink hover:text-pink-hover transition-colors"
+          >
+            ← Forrige episode
+          </a>
+        ) : (
+          <div></div>
+        )}
+
+        <a
+          href="/episodes"
+          class="text-gray-400 hover:text-white transition-colors"
+        >
+          Alle episoder
+        </a>
+
+        {episodeNumber < totalEpisodes - 1 ? (
+          <a
+            href={`/episode/${episodeNumber + 1}`}
+            class="text-pink hover:text-pink-hover transition-colors"
+          >
+            Neste episode →
+          </a>
+        ) : (
+          <div></div>
+        )}
+      </div>
+    </nav>
+  </article>
+</Layout>

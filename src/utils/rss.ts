@@ -34,3 +34,18 @@ export async function parseRssFeed(feedUrl: string): Promise<Episode[]> {
     imageUrl: item.itunesImage?.$ ? item.itunesImage.$.href : undefined,
   }));
 }
+
+/**
+ * Add sequential episode numbers to episodes, starting from 0 for the oldest episode.
+ * The RSS feed returns episodes in reverse chronological order (newest first).
+ */
+export function addEpisodeNumbers(episodes: Episode[]): Episode[] {
+  // Reverse to get oldest first
+  const reversed = [...episodes].reverse();
+
+  // Add sequential numbers starting from 0
+  return reversed.map((episode, index) => ({
+    ...episode,
+    episodeNumber: index,
+  })).reverse(); // Reverse back to newest first
+}
