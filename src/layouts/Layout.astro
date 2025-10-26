@@ -1,0 +1,54 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'A podcast by Truls Jørgensen and Audun Fauchald Strand' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <nav class="border-b border-gray-800 py-4">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center">
+          <a href="/" class="text-xl font-bold text-pink hover:text-pink-hover transition-colors">
+            heis.fm
+          </a>
+          <div class="flex gap-6">
+            <a href="/episodes" class="hover:text-pink transition-colors">
+              Episodes
+            </a>
+            <a href="/about" class="hover:text-pink transition-colors">
+              About
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="border-t border-gray-800 py-8 mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+        <p>&copy; {new Date().getFullYear()} heis.fm. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

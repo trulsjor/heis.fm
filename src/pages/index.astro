@@ -1,19 +1,10 @@
 ---
-import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-		<title>heis.fm</title>
-	</head>
-	<body>
-		<h1>heis.fm</h1>
-	</body>
-</html>
+<Layout title="heis.fm - Podcast">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+		<h1 class="text-4xl font-bold mb-4">Welcome to heis.fm</h1>
+		<p class="text-xl text-gray-300">A podcast by Truls Jørgensen and Audun Fauchald Strand</p>
+	</div>
+</Layout>
