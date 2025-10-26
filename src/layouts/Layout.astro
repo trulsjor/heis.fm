@@ -7,6 +7,9 @@ interface Props {
 }
 
 const { title, description = 'A podcast by Truls Jørgensen and Audun Fauchald Strand' } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://heis.fm');
+const ogImage = new URL('/cover.jpeg', Astro.site || 'https://heis.fm');
 ---
 
 <!DOCTYPE html>
@@ -17,6 +20,22 @@ const { title, description = 'A podcast by Truls Jørgensen and Audun Fauchald S
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="canonical" href={canonicalURL} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
