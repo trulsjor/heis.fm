@@ -1,7 +1,7 @@
 ---
 import SpotifyIcon from './icons/spotify.svg';
 import ApplePodcastsIcon from './icons/apple-podcasts.svg';
-import GooglePodcastsIcon from './icons/google-podcasts.svg';
+import PodMeIcon from './icons/podme.svg';
 import OvercastIcon from './icons/overcast.svg';
 import PocketCastsIcon from './icons/pocket-casts.svg';
 import RssIcon from './icons/rss.svg';
@@ -14,11 +14,11 @@ interface Provider {
 }
 
 const providers: Provider[] = [
-  { id: 'spotify', name: 'Spotify', href: 'https://open.spotify.com/', Icon: SpotifyIcon },
-  { id: 'apple', name: 'Apple Podcasts', href: 'https://podcasts.apple.com/', Icon: ApplePodcastsIcon },
-  { id: 'google', name: 'Google Podcasts', href: 'https://podcasts.google.com/', Icon: GooglePodcastsIcon },
-  { id: 'overcast', name: 'Overcast', href: 'https://overcast.fm/', Icon: OvercastIcon },
-  { id: 'pocket-casts', name: 'Pocket Casts', href: 'https://pocketcasts.com/', Icon: PocketCastsIcon },
+  { id: 'spotify', name: 'Spotify', href: 'https://open.spotify.com/show/3eajQxynkZ1EywIlShVXjR?si=b11c5f57b9ab4624', Icon: SpotifyIcon },
+  { id: 'apple', name: 'Apple Podcasts', href: 'https://podcasts.apple.com/us/podcast/heis/id1845368746', Icon: ApplePodcastsIcon },
+  { id: 'overcast', name: 'Overcast', href: 'https://overcast.fm/itunes1845368746', Icon: OvercastIcon },
+  { id: 'pocket-casts', name: 'Pocket Casts', href: 'https://pocketcasts.com/podcast/heis/701e6a60-8a35-013e-55da-025671e558a9', Icon: PocketCastsIcon },
+  { id: 'podme', name: 'PodMe', href: 'https://podme.com/no/podkast/rss-heis/', Icon: PodMeIcon },
   { id: 'rss', name: 'RSS', href: '/rss.xml', Icon: RssIcon },
 ];
 ---
@@ -26,7 +26,7 @@ const providers: Provider[] = [
 <section data-testid="listen-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
   <div class="flex items-center justify-between gap-4 mb-8">
     <h2 class="text-3xl font-bold">Her finner du oss</h2>
-    <p class="hidden md:block text-sm text-gray-400">Oppdater lenkene ved behov</p>
+  
   </div>
   <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
     {providers.map(({ id, name, href, Icon }) => (
@@ -39,7 +39,7 @@ const providers: Provider[] = [
         target={id === 'rss' ? '_self' : '_blank'}
         rel={id === 'rss' ? undefined : 'noopener noreferrer'}
       >
-        <Icon class="h-10 w-10 text-pink transition-colors group-hover:text-pink-hover" />
+        <Icon class="h-10 w-10 text-white transition-colors group-hover:text-pink" />
         <span class="text-sm font-medium text-gray-300 transition-colors group-hover:text-white">{name}</span>
       </a>
     ))}
