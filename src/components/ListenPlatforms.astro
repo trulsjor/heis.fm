@@ -1,0 +1,47 @@
+---
+import SpotifyIcon from './icons/spotify.svg';
+import ApplePodcastsIcon from './icons/apple-podcasts.svg';
+import GooglePodcastsIcon from './icons/google-podcasts.svg';
+import OvercastIcon from './icons/overcast.svg';
+import PocketCastsIcon from './icons/pocket-casts.svg';
+import RssIcon from './icons/rss.svg';
+
+interface Provider {
+  id: string;
+  name: string;
+  href: string;
+  Icon: typeof SpotifyIcon;
+}
+
+const providers: Provider[] = [
+  { id: 'spotify', name: 'Spotify', href: 'https://open.spotify.com/', Icon: SpotifyIcon },
+  { id: 'apple', name: 'Apple Podcasts', href: 'https://podcasts.apple.com/', Icon: ApplePodcastsIcon },
+  { id: 'google', name: 'Google Podcasts', href: 'https://podcasts.google.com/', Icon: GooglePodcastsIcon },
+  { id: 'overcast', name: 'Overcast', href: 'https://overcast.fm/', Icon: OvercastIcon },
+  { id: 'pocket-casts', name: 'Pocket Casts', href: 'https://pocketcasts.com/', Icon: PocketCastsIcon },
+  { id: 'rss', name: 'RSS', href: '/rss.xml', Icon: RssIcon },
+];
+---
+
+<section data-testid="listen-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <div class="flex items-center justify-between gap-4 mb-8">
+    <h2 class="text-3xl font-bold">Her finner du oss</h2>
+    <p class="hidden md:block text-sm text-gray-400">Oppdater lenkene ved behov</p>
+  </div>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+    {providers.map(({ id, name, href, Icon }) => (
+      <a
+        key={id}
+        href={href}
+        data-provider={id}
+        aria-label={`Åpne heis.fm på ${name}`}
+        class="group flex flex-col items-center gap-3 rounded-xl border border-gray-800 bg-zinc-900/40 p-4 text-center transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink hover:border-pink hover:bg-zinc-900"
+        target={id === 'rss' ? '_self' : '_blank'}
+        rel={id === 'rss' ? undefined : 'noopener noreferrer'}
+      >
+        <Icon class="h-10 w-10 text-gray-200 transition-colors group-hover:text-pink" />
+        <span class="text-sm font-medium text-gray-300 transition-colors group-hover:text-white">{name}</span>
+      </a>
+    ))}
+  </div>
+</section>
