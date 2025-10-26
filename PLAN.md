@@ -51,11 +51,11 @@
 
 ### Phase 3: Episode System
 
-- [ ] 3.1 Create content collection for episodes
-- [ ] 3.2 Define episode schema (title, date, description, audio URL, duration)
-- [ ] 3.3 Add 2-3 sample episodes (mock data)
-- [ ] 3.4 Create EpisodeCard component
-- [ ] 3.5 Build /episodes page with episode list
+- [x] 3.1 Create content collection for episodes (using RSS feed instead)
+- [x] 3.2 Define episode schema (title, date, description, audio URL, duration)
+- [x] 3.3 Add 2-3 sample episodes (mock data) - using real RSS data
+- [x] 3.4 Create EpisodeCard component
+- [x] 3.5 Build /episodes page with episode list
 - [ ] 3.6 Add basic audio player component
 - [ ] 3.7 Create individual episode page template
 
