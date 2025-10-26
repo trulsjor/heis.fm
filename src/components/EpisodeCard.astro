@@ -7,37 +7,55 @@ interface Props {
 
 const { episode } = Astro.props;
 
-// Format date
+// Format date in Norwegian
 const date = new Date(episode.pubDate);
-const formattedDate = date.toLocaleDateString('en-US', {
+const formattedDate = date.toLocaleDateString('nb-NO', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
 ---
 
-<article data-testid="episode-card" class="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors border border-gray-800">
-  <h3 class="text-xl font-semibold mb-2 hover:text-pink transition-colors">
-    {episode.link ? (
-      <a href={episode.link} target="_blank" rel="noopener noreferrer">
-        {episode.title}
-      </a>
-    ) : (
-      episode.title
-    )}
-  </h3>
-  <time datetime={episode.pubDate} class="text-sm text-gray-400 block mb-3">
-    {formattedDate}
-  </time>
-  <p class="text-gray-300 line-clamp-3 mb-4">
-    {episode.description}
-  </p>
-  {episode.audioUrl && (
-    <div class="mt-4">
-      <audio controls preload="metadata" class="w-full">
-        <source src={episode.audioUrl} type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
+<article data-testid="episode-card" class="bg-gray-900 rounded-lg overflow-hidden hover:bg-gray-800 transition-colors border border-gray-800">
+  {episode.imageUrl && (
+    <div class="aspect-square w-full">
+      <img
+        src={episode.imageUrl}
+        alt={episode.title}
+        class="w-full h-full object-cover"
+      />
     </div>
   )}
+  <div class="p-6">
+    <div class="flex items-center gap-3 mb-2">
+      {episode.episodeNumber && (
+        <span data-testid="episode-number" class="text-pink font-bold text-lg">
+          #{episode.episodeNumber}
+        </span>
+      )}
+      <time datetime={episode.pubDate} class="text-sm text-gray-400">
+        {formattedDate}
+      </time>
+    </div>
+    <h3 class="text-xl font-semibold mb-2 hover:text-pink transition-colors">
+      {episode.link ? (
+        <a href={episode.link} target="_blank" rel="noopener noreferrer">
+          {episode.title}
+        </a>
+      ) : (
+        episode.title
+      )}
+    </h3>
+    <p class="text-gray-300 line-clamp-3 mb-4">
+      {episode.description}
+    </p>
+    {episode.audioUrl && (
+      <div class="mt-4">
+        <audio controls preload="metadata" class="w-full">
+          <source src={episode.audioUrl} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    )}
+  </div>
 </article>

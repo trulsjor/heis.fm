@@ -8,7 +8,7 @@ const allEpisodes = await parseRssFeed(RSS_FEED_URL);
 const latestEpisodes = allEpisodes.slice(0, 3);
 ---
 
-<Layout title="heis.fm - Podcast">
+<Layout title="heis.fm - Podcast" description="En podcast om teknologi og ledelse av Truls Jørgensen og Audun Fauchald Strand">
 	<div data-testid="hero" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 		<div class="flex flex-col md:flex-row gap-12 items-center">
 			<div class="md:w-1/3">
@@ -21,14 +21,14 @@ const latestEpisodes = allEpisodes.slice(0, 3);
 			<div class="md:w-2/3">
 				<h1 class="text-5xl md:text-6xl font-bold mb-6">heis.fm</h1>
 				<p class="text-2xl text-gray-300 mb-8">
-					A podcast by Truls Jørgensen and Audun Fauchald Strand
+					En podcast om teknologi og ledelse av Truls Jørgensen og Audun Fauchald Strand
 				</p>
 				<div class="flex gap-4">
 					<a href="/episodes" class="bg-pink hover:bg-pink-hover text-white font-semibold px-6 py-3 rounded-lg transition-colors">
-						Listen Now
+						Lytt nå
 					</a>
 					<a href="/about" class="border border-pink text-pink hover:bg-pink hover:text-white font-semibold px-6 py-3 rounded-lg transition-colors">
-						About Us
+						Om oss
 					</a>
 				</div>
 			</div>
@@ -36,7 +36,7 @@ const latestEpisodes = allEpisodes.slice(0, 3);
 	</div>
 
 	<section data-testid="latest-episodes" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-		<h2 class="text-3xl font-bold mb-8">Latest Episodes</h2>
+		<h2 class="text-3xl font-bold mb-8">Siste episoder</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 			{latestEpisodes.map((episode) => (
 				<EpisodeCard episode={episode} />
@@ -44,34 +44,8 @@ const latestEpisodes = allEpisodes.slice(0, 3);
 		</div>
 		<div class="mt-8 text-center">
 			<a href="/episodes" class="inline-block border border-pink text-pink hover:bg-pink hover:text-white font-semibold px-6 py-3 rounded-lg transition-colors">
-				View All Episodes
+				Se alle episoder
 			</a>
-		</div>
-	</section>
-
-	<section data-testid="hosts" class="bg-gray-900 py-16">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<h2 class="text-3xl font-bold mb-12 text-center">Meet Your Hosts</h2>
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-				<div class="text-center">
-					<div class="w-48 h-48 mx-auto mb-6 bg-gray-800 rounded-full flex items-center justify-center text-6xl font-bold text-pink">
-						TJ
-					</div>
-					<h3 class="text-2xl font-bold mb-2">Truls Jørgensen</h3>
-					<p class="text-gray-300">
-						Co-host of heis.fm
-					</p>
-				</div>
-				<div class="text-center">
-					<div class="w-48 h-48 mx-auto mb-6 bg-gray-800 rounded-full flex items-center justify-center text-6xl font-bold text-pink">
-						AFS
-					</div>
-					<h3 class="text-2xl font-bold mb-2">Audun Fauchald Strand</h3>
-					<p class="text-gray-300">
-						Co-host of heis.fm
-					</p>
-				</div>
-			</div>
 		</div>
 	</section>
 </Layout>

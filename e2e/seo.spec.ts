@@ -23,8 +23,8 @@ test('episodes page has SEO meta tags', async ({ page }) => {
   // Check basic meta tags
   await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /.+/);
 
-  // Check Open Graph tags
-  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /Episodes/i);
+  // Check Open Graph tags (in Norwegian)
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /Episoder/i);
   await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'website');
 });
 
@@ -34,8 +34,8 @@ test('about page has SEO meta tags', async ({ page }) => {
   // Check basic meta tags
   await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /.+/);
 
-  // Check Open Graph tags
-  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /About/i);
+  // Check Open Graph tags (in Norwegian)
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /Om oss/i);
   await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'website');
 });
 

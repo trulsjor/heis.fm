@@ -14,11 +14,11 @@ test('navigation bar exists with correct links', async ({ page }) => {
 
   const episodesLink = nav.locator('a[href="/episodes"]');
   await expect(episodesLink).toBeVisible();
-  await expect(episodesLink).toContainText('Episodes');
+  await expect(episodesLink).toContainText('Episoder');
 
   const aboutLink = nav.locator('a[href="/about"]');
   await expect(aboutLink).toBeVisible();
-  await expect(aboutLink).toContainText('About');
+  await expect(aboutLink).toContainText('Om oss');
 });
 
 test('footer exists with copyright', async ({ page }) => {

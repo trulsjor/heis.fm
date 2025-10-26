@@ -35,9 +35,9 @@ test('homepage displays latest episodes section', async ({ page }) => {
   const latestEpisodesSection = page.locator('[data-testid="latest-episodes"]');
   await expect(latestEpisodesSection).toBeVisible();
 
-  // Check section has heading
+  // Check section has heading (in Norwegian)
   const heading = latestEpisodesSection.locator('h2');
-  await expect(heading).toContainText(/Latest Episodes/i);
+  await expect(heading).toContainText(/Siste episoder/i);
 
   // Check at least one episode card is visible
   const episodeCards = page.locator('[data-testid="episode-card"]');
@@ -47,20 +47,9 @@ test('homepage displays latest episodes section', async ({ page }) => {
   const firstCard = episodeCards.first();
   await expect(firstCard.locator('h3')).toBeVisible(); // title
   await expect(firstCard.locator('time')).toBeVisible(); // date
-});
+  await expect(firstCard.locator('img')).toBeVisible(); // episode image
 
-test('homepage displays hosts section', async ({ page }) => {
-  await page.goto('/');
-
-  // Check for hosts section
-  const hostsSection = page.locator('[data-testid="hosts"]');
-  await expect(hostsSection).toBeVisible();
-
-  // Check section has heading
-  const heading = hostsSection.locator('h2');
-  await expect(heading).toContainText(/Meet.*Hosts/i);
-
-  // Check both hosts are displayed
-  await expect(hostsSection.getByText('Truls Jørgensen')).toBeVisible();
-  await expect(hostsSection.getByText('Audun Fauchald Strand')).toBeVisible();
+  // Check for episode number
+  const episodeNumber = firstCard.locator('[data-testid="episode-number"]');
+  await expect(episodeNumber).toBeVisible();
 });

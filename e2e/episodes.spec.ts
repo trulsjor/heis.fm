@@ -3,13 +3,13 @@ import { test, expect } from '@playwright/test';
 test('episodes page loads and displays title', async ({ page }) => {
   await page.goto('/episodes');
 
-  // Check page title
-  await expect(page).toHaveTitle(/Episodes.*heis\.fm/i);
+  // Check page title (in Norwegian)
+  await expect(page).toHaveTitle(/Episoder.*heis\.fm/i);
 
-  // Check heading in main content
+  // Check heading in main content (in Norwegian)
   const main = page.locator('main');
   const heading = main.locator('h1').first();
-  await expect(heading).toContainText(/Episodes/i);
+  await expect(heading).toContainText(/Alle episoder/i);
 });
 
 test('episodes page displays episode cards', async ({ page }) => {

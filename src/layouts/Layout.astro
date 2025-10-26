@@ -6,7 +6,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = 'A podcast by Truls Jørgensen and Audun Fauchald Strand' } = Astro.props;
+const { title, description = 'En podcast om teknologi og ledelse av Truls Jørgensen og Audun Fauchald Strand' } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://heis.fm');
 const ogImage = new URL('/cover.jpeg', Astro.site || 'https://heis.fm');
@@ -50,10 +50,10 @@ const ogImage = new URL('/cover.jpeg', Astro.site || 'https://heis.fm');
           </a>
           <div class="flex gap-6">
             <a href="/episodes" class="hover:text-pink transition-colors">
-              Episodes
+              Episoder
             </a>
             <a href="/about" class="hover:text-pink transition-colors">
-              About
+              Om oss
             </a>
           </div>
         </div>
