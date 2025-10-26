@@ -33,13 +33,11 @@ const formattedDate = date.toLocaleDateString('en-US', {
     {episode.description}
   </p>
   {episode.audioUrl && (
-    <a
-      href={episode.audioUrl}
-      class="inline-block text-pink hover:text-pink-hover font-semibold transition-colors"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Listen →
-    </a>
+    <div class="mt-4">
+      <audio controls preload="metadata" class="w-full">
+        <source src={episode.audioUrl} type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
   )}
 </article>

@@ -35,3 +35,22 @@ test('episodes page has working navigation', async ({ page }) => {
   const homeLink = nav.locator('a[href="/"]');
   await expect(homeLink).toBeVisible();
 });
+
+test('episode cards have audio player', async ({ page }) => {
+  await page.goto('/episodes');
+
+  // Get first episode card
+  const firstCard = page.locator('[data-testid="episode-card"]').first();
+  await expect(firstCard).toBeVisible();
+
+  // Check for audio element
+  const audio = firstCard.locator('audio');
+  await expect(audio).toBeVisible();
+
+  // Check audio has controls
+  await expect(audio).toHaveAttribute('controls');
+
+  // Check audio has source
+  const source = audio.locator('source');
+  await expect(source).toHaveAttribute('src');
+});
