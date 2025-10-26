@@ -1,0 +1,45 @@
+---
+import type { Episode } from '../utils/rss';
+
+interface Props {
+  episode: Episode;
+}
+
+const { episode } = Astro.props;
+
+// Format date
+const date = new Date(episode.pubDate);
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article data-testid="episode-card" class="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors border border-gray-800">
+  <h3 class="text-xl font-semibold mb-2 hover:text-pink transition-colors">
+    {episode.link ? (
+      <a href={episode.link} target="_blank" rel="noopener noreferrer">
+        {episode.title}
+      </a>
+    ) : (
+      episode.title
+    )}
+  </h3>
+  <time datetime={episode.pubDate} class="text-sm text-gray-400 block mb-3">
+    {formattedDate}
+  </time>
+  <p class="text-gray-300 line-clamp-3 mb-4">
+    {episode.description}
+  </p>
+  {episode.audioUrl && (
+    <a
+      href={episode.audioUrl}
+      class="inline-block text-pink hover:text-pink-hover font-semibold transition-colors"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Listen →
+    </a>
+  )}
+</article>

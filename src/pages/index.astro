@@ -1,5 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import EpisodeCard from '../components/EpisodeCard.astro';
+import { parseRssFeed } from '../utils/rss';
+
+const RSS_FEED_URL = 'https://feeds.acast.com/public/shows/68d8f5fdacc34956e6156eec';
+const allEpisodes = await parseRssFeed(RSS_FEED_URL);
+const latestEpisodes = allEpisodes.slice(0, 3);
 ---
 
 <Layout title="heis.fm - Podcast">
@@ -28,4 +34,18 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</div>
 	</div>
+
+	<section data-testid="latest-episodes" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+		<h2 class="text-3xl font-bold mb-8">Latest Episodes</h2>
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+			{latestEpisodes.map((episode) => (
+				<EpisodeCard episode={episode} />
+			))}
+		</div>
+		<div class="mt-8 text-center">
+			<a href="/episodes" class="inline-block border border-pink text-pink hover:bg-pink hover:text-white font-semibold px-6 py-3 rounded-lg transition-colors">
+				View All Episodes
+			</a>
+		</div>
+	</section>
 </Layout>
