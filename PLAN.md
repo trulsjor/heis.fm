@@ -67,13 +67,13 @@
 - [ ] 4.4 Add contact information (optional)
 - [ ] 4.5 Include social media links (optional)
 
-### Phase 5: RSS Feed
+### Phase 5: RSS Feed ✅ COMPLETE
 
-- [ ] 5.1 Install @astrojs/rss package
-- [ ] 5.2 Create RSS feed endpoint
-- [ ] 5.3 Map episode content to RSS format
-- [ ] 5.4 Add podcast-specific RSS tags (iTunes, Spotify)
-- [ ] 5.5 Test RSS feed validation
+- [x] 5.1 Install @astrojs/rss package
+- [x] 5.2 Create RSS feed endpoint
+- [x] 5.3 Map episode content to RSS format
+- [x] 5.4 Add podcast-specific RSS tags (iTunes, Spotify) - using upstream feed
+- [x] 5.5 Test RSS feed validation
 
 ### Phase 6: Polish & Optimization
 
