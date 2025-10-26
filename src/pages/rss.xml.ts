@@ -1,8 +1,7 @@
 import rss from '@astrojs/rss';
-import { parseRssFeed } from '../utils/rss';
 import type { APIContext } from 'astro';
-
-const RSS_FEED_URL = 'https://feeds.acast.com/public/shows/68d8f5fdacc34956e6156eec';
+import { RSS_FEED_URL } from '../config';
+import { parseRssFeed } from '../utils/rss';
 
 export async function GET(context: APIContext) {
   const episodes = await parseRssFeed(RSS_FEED_URL);

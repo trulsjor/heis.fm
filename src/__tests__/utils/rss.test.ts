@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
-
-const RSS_FEED_URL = 'https://feeds.acast.com/public/shows/68d8f5fdacc34956e6156eec';
+import { RSS_FEED_URL } from '../../config';
 
 describe('RSS feed parser', () => {
   it('should fetch and parse the RSS feed', async () => {
