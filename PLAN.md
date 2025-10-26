@@ -44,10 +44,10 @@
 
 - [x] 2.1 Create hero section with cover image
 - [x] 2.2 Add podcast title and tagline
-- [ ] 2.3 Build "Latest Episodes" section component
+- [x] 2.3 Build "Latest Episodes" section component
 - [x] 2.4 Add subscribe/listen buttons (placeholder links)
 - [ ] 2.5 Create hosts section with photos and bios
-- [ ] 2.6 Add footer with social links
+- [x] 2.6 Add footer with social links (footer exists in Layout)
 
 ### Phase 3: Episode System
 
