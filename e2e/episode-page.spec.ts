@@ -74,3 +74,40 @@ test('episode card links to episode page', async ({ page }) => {
   const href = await titleLink.getAttribute('href');
   expect(href).toMatch(/^\/episode\/\d+$/);
 });
+
+test('episode 3 description has formatted lists and links', async ({ page }) => {
+  await page.goto('/episode/3');
+
+  // Find the description container
+  const description = page.locator('.prose');
+  await expect(description).toBeVisible();
+
+  // Check for bullet list items
+  const listItems = description.locator('ul li');
+  const listItemCount = await listItems.count();
+  expect(listItemCount).toBeGreaterThan(0);
+
+  // Check for links in the description
+  const links = description.locator('a');
+  const linkCount = await links.count();
+  expect(linkCount).toBeGreaterThan(0);
+
+  // Check link styling - should have pink color
+  const firstLink = links.first();
+  const linkColor = await firstLink.evaluate((el) => {
+    return window.getComputedStyle(el).color;
+  });
+
+  // Check that links have underline
+  const textDecoration = await firstLink.evaluate((el) => {
+    return window.getComputedStyle(el).textDecoration;
+  });
+  expect(textDecoration).toContain('underline');
+
+  // Check list has proper list-style
+  const list = description.locator('ul').first();
+  const listStyle = await list.evaluate((el) => {
+    return window.getComputedStyle(el).listStyleType;
+  });
+  expect(listStyle).toBe('disc');
+});

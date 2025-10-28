@@ -11,6 +11,20 @@ export interface Episode {
   imageUrl?: string;
 }
 
+/**
+ * Convert plain text URLs to clickable HTML links
+ */
+function linkifyUrls(text: string): string {
+  // Regex to match URLs that aren't already in anchor tags
+  const urlRegex = /(?<!href=["'])(?<!src=["'])(https?:\/\/[^\s<>"]+)/gi;
+
+  return text.replace(urlRegex, (url) => {
+    // Clean up URL if it ends with punctuation that's likely not part of the URL
+    const cleanUrl = url.replace(/[.,;!?]+$/, '');
+    return `<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer">${cleanUrl}</a>`;
+  });
+}
+
 const parser = new Parser({
   customFields: {
     item: [
@@ -23,16 +37,21 @@ const parser = new Parser({
 export async function parseRssFeed(feedUrl: string): Promise<Episode[]> {
   const feed = await parser.parseURL(feedUrl);
 
-  return feed.items.map((item: any) => ({
-    title: item.title || '',
-    description: item.contentSnippet || item.content || '',
-    pubDate: item.pubDate || item.isoDate || '',
-    audioUrl: item.enclosure?.url || '',
-    duration: item.itunes?.duration || undefined,
-    link: item.link || undefined,
-    episodeNumber: item.itunesEpisode ? parseInt(item.itunesEpisode) : undefined,
-    imageUrl: item.itunesImage?.$ ? item.itunesImage.$.href : undefined,
-  }));
+  return feed.items.map((item: any) => {
+    const rawDescription = item['content:encoded'] || item.content || item.contentSnippet || '';
+    const description = linkifyUrls(rawDescription);
+
+    return {
+      title: item.title || '',
+      description,
+      pubDate: item.pubDate || item.isoDate || '',
+      audioUrl: item.enclosure?.url || '',
+      duration: item.itunes?.duration || undefined,
+      link: item.link || undefined,
+      episodeNumber: item.itunesEpisode ? parseInt(item.itunesEpisode) : undefined,
+      imageUrl: item.itunesImage?.$ ? item.itunesImage.$.href : undefined,
+    };
+  });
 }
 
 /**

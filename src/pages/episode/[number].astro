@@ -74,10 +74,8 @@ const formattedDate = date.toLocaleDateString('nb-NO', {
     )}
 
     <!-- Episode description -->
-    <div class="prose prose-invert max-w-none mb-12">
-      <div class="text-lg text-gray-300 leading-relaxed">
-        {episode.description}
-      </div>
+    <div class="prose prose-invert prose-pink max-w-none mb-12">
+      <div class="text-lg text-gray-300 leading-relaxed" set:html={episode.description} />
     </div>
 
     <!-- Navigation -->
