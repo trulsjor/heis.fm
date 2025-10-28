@@ -3,9 +3,10 @@ import type { Episode } from '../utils/rss';
 
 interface Props {
   episode: Episode;
+  compact?: boolean;
 }
 
-const { episode } = Astro.props;
+const { episode, compact = false } = Astro.props;
 
 // Format date in Norwegian
 const date = new Date(episode.pubDate);
@@ -59,16 +60,18 @@ const formattedDate = date.toLocaleDateString('nb-NO', {
     {episode.subtitle && (
       <p class="text-sm text-gray-400 mb-2 italic">{episode.subtitle}</p>
     )}
-    <p class="text-gray-300 line-clamp-3 mb-4">
-      {episode.description}
-    </p>
-    {episode.audioUrl && (
-      <div class="mt-4">
-        <audio controls preload="metadata" class="w-full">
-          <source src={episode.audioUrl} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-      </div>
+    {!compact && (
+      <>
+        <div class="text-gray-300 line-clamp-3 mb-4 prose prose-sm" set:html={episode.description} />
+        {episode.audioUrl && (
+          <div class="mt-4">
+            <audio controls preload="metadata" class="w-full">
+              <source src={episode.audioUrl} type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        )}
+      </>
     )}
   </div>
 </article>

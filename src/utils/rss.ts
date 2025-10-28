@@ -4,6 +4,7 @@ export interface Episode {
   title: string;
   subtitle?: string;
   description: string;
+  descriptionPlain?: string;
   pubDate: string;
   audioUrl: string;
   duration?: string;
@@ -26,6 +27,21 @@ function linkifyUrls(text: string): string {
   });
 }
 
+/**
+ * Strip HTML tags and decode entities to get plain text
+ */
+function stripHtml(html: string): string {
+  return html
+    .replace(/<[^>]*>/g, ' ') // Remove HTML tags
+    .replace(/\s+/g, ' ') // Normalize whitespace
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+    .trim();
+}
+
 const parser = new Parser({
   customFields: {
     item: [
@@ -42,11 +58,13 @@ export async function parseRssFeed(feedUrl: string): Promise<Episode[]> {
   return feed.items.map((item: any) => {
     const rawDescription = item['content:encoded'] || item.content || item.contentSnippet || '';
     const description = linkifyUrls(rawDescription);
+    const descriptionPlain = stripHtml(rawDescription);
 
     return {
       title: item.title || '',
       subtitle: item.itunesSubtitle || item.itunes?.subtitle || undefined,
       description,
+      descriptionPlain,
       pubDate: item.pubDate || item.isoDate || '',
       audioUrl: item.enclosure?.url || '',
       duration: item.itunes?.duration || undefined,
