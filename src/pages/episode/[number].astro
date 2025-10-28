@@ -13,7 +13,13 @@ export async function getStaticPaths() {
 
   return reversedEpisodes.map((episode, index) => ({
     params: { number: index.toString() },
-    props: { episode, episodeNumber: index, totalEpisodes: episodes.length },
+    props: {
+      episode,
+      episodeNumber: index,
+      totalEpisodes: episodes.length,
+      prevEpisode: index > 0 ? reversedEpisodes[index - 1] : null,
+      nextEpisode: index < episodes.length - 1 ? reversedEpisodes[index + 1] : null,
+    },
   }));
 }
 
@@ -21,9 +27,11 @@ interface Props {
   episode: Episode;
   episodeNumber: number;
   totalEpisodes: number;
+  prevEpisode: Episode | null;
+  nextEpisode: Episode | null;
 }
 
-const { episode, episodeNumber, totalEpisodes } = Astro.props;
+const { episode, episodeNumber, totalEpisodes, prevEpisode, nextEpisode } = Astro.props;
 
 // Format date in Norwegian
 const date = new Date(episode.pubDate);
@@ -83,13 +91,19 @@ const formattedDate = date.toLocaleDateString('nb-NO', {
 
     <!-- Navigation -->
     <nav class="border-t border-gray-800 pt-8 mt-12">
-      <div class="flex justify-between items-center">
-        {episodeNumber > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        {prevEpisode ? (
           <a
             href={`/episode/${episodeNumber - 1}`}
-            class="text-pink hover:text-pink-hover transition-colors"
+            class="group bg-gray-900 hover:bg-gray-800 border border-gray-800 rounded-lg p-4 transition-colors"
           >
-            ← Forrige episode
+            <div class="text-sm text-gray-400 mb-1">← Forrige</div>
+            <div class="font-semibold text-white group-hover:text-pink transition-colors line-clamp-2">
+              {prevEpisode.title}
+            </div>
+            {prevEpisode.subtitle && (
+              <div class="text-sm text-gray-400 mt-1 line-clamp-1">{prevEpisode.subtitle}</div>
+            )}
           </a>
         ) : (
           <div></div>
@@ -97,17 +111,23 @@ const formattedDate = date.toLocaleDateString('nb-NO', {
 
         <a
           href="/episodes"
-          class="text-gray-400 hover:text-white transition-colors"
+          class="flex items-center justify-center bg-gray-900 hover:bg-gray-800 border border-gray-800 rounded-lg p-4 transition-colors text-gray-400 hover:text-white font-semibold"
         >
           Alle episoder
         </a>
 
-        {episodeNumber < totalEpisodes - 1 ? (
+        {nextEpisode ? (
           <a
             href={`/episode/${episodeNumber + 1}`}
-            class="text-pink hover:text-pink-hover transition-colors"
+            class="group bg-gray-900 hover:bg-gray-800 border border-gray-800 rounded-lg p-4 transition-colors text-right"
           >
-            Neste episode →
+            <div class="text-sm text-gray-400 mb-1">Neste →</div>
+            <div class="font-semibold text-white group-hover:text-pink transition-colors line-clamp-2">
+              {nextEpisode.title}
+            </div>
+            {nextEpisode.subtitle && (
+              <div class="text-sm text-gray-400 mt-1 line-clamp-1">{nextEpisode.subtitle}</div>
+            )}
           </a>
         ) : (
           <div></div>

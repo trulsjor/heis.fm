@@ -40,12 +40,12 @@ test('episode page has navigation', async ({ page }) => {
   await expect(allEpisodesLink).toHaveAttribute('href', '/episodes');
 
   // Check for previous episode link
-  const prevLink = page.locator('a:has-text("Forrige episode")');
+  const prevLink = page.locator('a:has-text("Forrige")');
   await expect(prevLink).toBeVisible();
   await expect(prevLink).toHaveAttribute('href', '/episode/0');
 
   // Check for next episode link (if not the latest)
-  const nextLink = page.locator('a:has-text("Neste episode")');
+  const nextLink = page.locator('a:has-text("Neste")');
   if (await nextLink.count() > 0) {
     await expect(nextLink).toHaveAttribute('href', '/episode/2');
   }
@@ -55,7 +55,7 @@ test('episode 0 does not have previous link', async ({ page }) => {
   await page.goto('/episode/0');
 
   // Should not have "previous episode" link
-  const prevLink = page.locator('a:has-text("Forrige episode")');
+  const prevLink = page.locator('a:has-text("Forrige")');
   await expect(prevLink).not.toBeVisible();
 });
 
