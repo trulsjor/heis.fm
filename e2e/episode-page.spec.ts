@@ -111,3 +111,12 @@ test('episode 3 description has formatted lists and links', async ({ page }) => 
   });
   expect(listStyle).toBe('disc');
 });
+
+test('episode 3 has subtitle', async ({ page }) => {
+  await page.goto('/episode/3');
+
+  // Check for subtitle
+  const subtitle = page.locator('p.text-xl.text-gray-400');
+  await expect(subtitle).toBeVisible();
+  await expect(subtitle).toHaveText('Å lede uten tittel');
+});

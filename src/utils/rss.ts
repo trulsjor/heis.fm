@@ -2,6 +2,7 @@ import Parser from 'rss-parser';
 
 export interface Episode {
   title: string;
+  subtitle?: string;
   description: string;
   pubDate: string;
   audioUrl: string;
@@ -30,6 +31,7 @@ const parser = new Parser({
     item: [
       ['itunes:episode', 'itunesEpisode'],
       ['itunes:image', 'itunesImage'],
+      ['itunes:subtitle', 'itunesSubtitle'],
     ],
   },
 });
@@ -43,6 +45,7 @@ export async function parseRssFeed(feedUrl: string): Promise<Episode[]> {
 
     return {
       title: item.title || '',
+      subtitle: item.itunesSubtitle || item.itunes?.subtitle || undefined,
       description,
       pubDate: item.pubDate || item.isoDate || '',
       audioUrl: item.enclosure?.url || '',
