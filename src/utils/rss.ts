@@ -11,6 +11,7 @@ export interface Episode {
   link?: string;
   episodeNumber?: number;
   imageUrl?: string;
+  episodeId?: string;
 }
 
 /**
@@ -71,6 +72,7 @@ export async function parseRssFeed(feedUrl: string): Promise<Episode[]> {
       link: item.link || undefined,
       episodeNumber: item.itunesEpisode ? parseInt(item.itunesEpisode) : undefined,
       imageUrl: item.itunesImage?.$ ? item.itunesImage.$.href : undefined,
+      episodeId: item.guid || undefined,
     };
   });
 }

@@ -16,19 +16,16 @@ test('episode page loads and displays episode 0', async ({ page }) => {
   await expect(heading).toBeVisible();
 });
 
-test('episode page has audio player', async ({ page }) => {
+test('episode page has Acast embed player', async ({ page }) => {
   await page.goto('/episode/0');
 
-  // Check for audio element
-  const audio = page.locator('audio');
-  await expect(audio).toBeVisible();
+  // Check for iframe embed
+  const iframe = page.locator('iframe[src*="embed.acast.com"]');
+  await expect(iframe).toBeVisible();
 
-  // Check audio has controls
-  await expect(audio).toHaveAttribute('controls');
-
-  // Check audio has source
-  const source = audio.locator('source');
-  await expect(source).toHaveAttribute('src');
+  // Check iframe has correct attributes
+  await expect(iframe).toHaveAttribute('width', '100%');
+  await expect(iframe).toHaveAttribute('height', '400px');
 });
 
 test('episode page has navigation', async ({ page }) => {
