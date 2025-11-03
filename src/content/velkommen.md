@@ -55,4 +55,4 @@ Du kan alltid nå oss på:  [truls@heis.fm](mailto:truls@heis.fm)  og [audun@
 
 Har du tanker, ideer eller ønsker til hva vi kan snakke om, del det gjerne i forkant. Vi tilpasser samtalen slik at du får snakke om det du brenner for.
 
-Podcasten publiseres på [heis.fm](https://www.google.com/url?q=http://heis.fm&sa=D&source=editors&ust=1762208929212920&usg=AOvVaw19B48vHX_wuD3MfhBWQhqb), reklameres for på Instagram og LinkedIn og blir tilgjengelig blant annet på Spotify, Apple Podcasts, Podme og OverCast.
+Podcasten publiseres på [heis.fm](https://www.google.com/url?q=http://heis.fm&sa=D&source=editors&ust=1762209988779511&usg=AOvVaw1p8QsKZNbz8FQjz4RH9_BF), reklameres for på Instagram og LinkedIn og blir på følgende plattformer:

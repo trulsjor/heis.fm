@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ListenPlatforms from '../components/ListenPlatforms.astro';
 import { Content } from '../content/velkommen.md';
 ---
 
@@ -11,6 +12,10 @@ import { Content } from '../content/velkommen.md';
 			[&_ul]:space-y-3 [&_ul]:text-lg [&_ul]:text-gray-300 [&_ul]:mb-12
 			[&_p]:text-xl [&_p]:text-gray-300 [&_p]:leading-relaxed [&_p]:mb-12">
 			<Content />
+		</div>
+
+		<div class="mt-4">
+			<ListenPlatforms />
 		</div>
 	</div>
 </Layout>
