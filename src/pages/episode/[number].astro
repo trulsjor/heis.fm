@@ -76,12 +76,12 @@ const formattedDate = date.toLocaleDateString('nb-NO', {
       </div>
     )}
 
+    <ListenPlatforms />
+
     <!-- Episode description -->
     <div class="prose prose-invert prose-pink max-w-none mb-6">
       <div class="text-lg text-gray-300 leading-relaxed" set:html={episode.description} />
     </div>
-
-    <ListenPlatforms />
 
     <!-- Navigation -->
     <nav class="border-t border-gray-800 pt-8 mt-12">
