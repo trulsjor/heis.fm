@@ -77,13 +77,15 @@ const formattedDate = date.toLocaleDateString('nb-NO', {
     )}
 
     <!-- Episode description -->
-    <div class="prose prose-invert prose-pink max-w-none mb-12">
+    <div class="prose prose-invert prose-pink max-w-none mb-6">
       <div class="text-lg text-gray-300 leading-relaxed" set:html={episode.description} />
     </div>
 
+    <ListenPlatforms />
+
     <!-- Navigation -->
     <nav class="border-t border-gray-800 pt-8 mt-12">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {prevEpisode ? (
           <a
             href={`/episode/${episodeNumber - 1}`}
@@ -100,13 +102,6 @@ const formattedDate = date.toLocaleDateString('nb-NO', {
         ) : (
           <div></div>
         )}
-
-        <a
-          href="/episodes"
-          class="flex items-center justify-center bg-gray-900 hover:bg-gray-800 border border-gray-800 rounded-lg p-4 transition-colors text-gray-400 hover:text-white font-semibold"
-        >
-          Alle episoder
-        </a>
 
         {nextEpisode ? (
           <a
@@ -126,6 +121,5 @@ const formattedDate = date.toLocaleDateString('nb-NO', {
         )}
       </div>
     </nav>
-    <ListenPlatforms />
   </article>
 </Layout>
