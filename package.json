@@ -3,8 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "node scripts/fetch-velkommen.js && astro dev",
-    "prebuild": "node scripts/fetch-velkommen.js",
+    "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
