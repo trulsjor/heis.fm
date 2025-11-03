@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   id="svg1"
+   width="931.34198"
+   height="439.34036"
+   viewBox="0 0 931.34198 439.34036"
+   xmlns="http://www.w3.org/2000/svg">
+  <g id="g2">
+    <text
+       xml:space="preserve"
+       transform="matrix(1.3333333,0,0,1.3333333,34.21826,359.1093)"
+       id="text5"><tspan
+         style="font-variant:normal;font-weight:700;font-size:278px;font-family:Futura;writing-mode:lr-tb;fill:currentColor;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         x="0"
+         dx="0 -8.3400002"
+         y="0"
+         id="tspan5">HE</tspan></text>
+    <path
+       id="text6"
+       style="fill:currentColor;fill-opacity:1;fill-rule:evenodd;clip-rule:evenodd"
+       d="M 21.962289 -209.61177 L 21.962289 5.6250001e-05 L 76.450083 5.6250001e-05 L 76.450083 -209.61177 L 21.962289 -209.61177 z M 49.141 -123.07905 C 53.803749 -123.07905 58.4668 -121.30149 62.024301 -117.74409 C 69.139304 -110.62919 69.139304 -99.09375 62.024301 -91.97895 C 54.909299 -84.864052 43.374159 -84.864052 36.259164 -91.97895 C 29.145159 -99.09375 29.145159 -110.62919 36.259164 -117.74409 C 39.816661 -121.30149 44.478251 -123.07905 49.141 -123.07905 z "
+       transform="matrix(1.3333333,0,0,1.3333333,532.02359,359.1093)" />
+    <text
+       id="text7"
+       xml:space="preserve"
+       transform="matrix(1.3333333,0,0,1.3333333,652.11959,359.1093)"><tspan
+         id="tspan7"
+         style="font-variant:normal;font-weight:700;font-size:278px;font-family:Futura;writing-mode:lr-tb;fill:currentColor;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         x="0"
+         y="0">S</tspan></text>
+    <path
+       id="path10"
+       d="m 597.54569,401.95812 -36.21067,-34.5148 h 72.42267 z"
+       style="fill:currentColor;fill-opacity:1;fill-rule:evenodd;clip-rule:evenodd;stroke:none;stroke-width:1.33333" />
+    <path
+       id="path11"
+       d="m 597.54569,37.551859 36.212,34.514799 h -72.42267 z"
+       style="fill:currentColor;fill-opacity:1;fill-rule:evenodd;clip-rule:evenodd;stroke:none;stroke-width:1.33333" />
+    <path
+       id="path12"
+       d="M 135.62943,248.08519 H 268.96276 V 191.42476 H 135.62943 Z"
+       style="fill:currentColor;fill-opacity:1;fill-rule:evenodd;clip-rule:evenodd;stroke:none;stroke-width:1.33333" />
+  </g>
+</svg>

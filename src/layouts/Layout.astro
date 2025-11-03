@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import HeisLogo from '../components/icons/heis-logo.svg';
 
 interface Props {
   title: string;
@@ -41,12 +42,17 @@ const ogImage = new URL('/cover.jpeg', Astro.site || 'https://heis.fm');
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen flex flex-col">
-    <nav class="border-b border-gray-800 py-4">
+  <body class="min-h-screen flex flex-col relative">
+    <!-- Decorative elevator icon (hidden on mobile, visible on large screens) -->
+    <div class="hidden xl:block fixed left-8 top-1/2 -translate-y-1/2 w-32 h-auto pointer-events-none opacity-50 z-0" aria-hidden="true">
+      <img src="/i.svg" alt="" class="w-full h-auto" />
+    </div>
+
+    <nav class="border-b border-gray-800 py-4 relative z-10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center">
-          <a href="/" class="text-xl font-bold text-pink hover:text-pink-hover transition-colors">
-            heis.fm
+          <a href="/" class="block group">
+            <HeisLogo class="h-8 w-auto text-white transition-colors group-hover:text-pink" />
           </a>
           <div class="flex gap-6">
             <a href="/about" class="hover:text-pink transition-colors">
@@ -57,11 +63,11 @@ const ogImage = new URL('/cover.jpeg', Astro.site || 'https://heis.fm');
       </div>
     </nav>
 
-    <main class="flex-1">
+    <main class="flex-1 relative z-10">
       <slot />
     </main>
 
-    <footer class="border-t border-gray-800 py-8 mt-16">
+    <footer class="border-t border-gray-800 py-8 mt-16 relative z-10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
         <p>&copy; {new Date().getFullYear()} heis.fm</p>
       </div>
