@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "node scripts/fetch-velkommen.js && astro dev",
-    "build": "node scripts/fetch-velkommen.js && astro build",
+    "prebuild": "node scripts/fetch-velkommen.js",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "fetch:velkommen": "node scripts/fetch-velkommen.js",
