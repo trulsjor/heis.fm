@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Content } from '../content/velkommen.md';
+---
+
+<Layout title="Velkommen - heis.fm" description="Kjøreregeler og informasjon for gjester på heis.fm-podcasten">
+	<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+		<div class="prose prose-invert max-w-none
+			[&_h1]:text-4xl [&_h1]:md:text-5xl [&_h1]:font-bold [&_h1]:mb-8
+			[&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mb-4 [&_h2]:text-pink
+			[&_ul]:space-y-3 [&_ul]:text-lg [&_ul]:text-gray-300 [&_ul]:mb-12
+			[&_p]:text-xl [&_p]:text-gray-300 [&_p]:leading-relaxed [&_p]:mb-12">
+			<Content />
+		</div>
+	</div>
+</Layout>
