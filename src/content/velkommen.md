@@ -9,7 +9,7 @@ Heis handler ikke om å stille spørsmål, men om å ha en ekte _samtale_.
 
 Kanskje du:
 
-*   Har gått veien fra utvikler til leder (eller tilbake igjen)
+*   Har gått veien fra utvikler til leder (eller tilbake igjen?)
 *   Har erfaring med å bygge team, kultur eller teknologi
 *   Har tenkt mye på samspill mellom strategi og praksis
 *   Bringer et uvanlig perspektiv på ledelse, teknologi eller makt
